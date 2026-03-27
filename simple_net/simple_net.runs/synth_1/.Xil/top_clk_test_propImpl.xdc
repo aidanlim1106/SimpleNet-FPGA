@@ -1,0 +1,5 @@
+set_property SRC_FILE_INFO {cfile:C:/FPGA_Projects/Simple_Net/src/constraints/urbana_s7.xdc rfile:../../../../src/constraints/urbana_s7.xdc id:1} [current_design]
+set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN N15 IOSTANDARD LVCMOS33} [get_ports sys_clk]
+set_property src_info {type:XDC file:1 line:4 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN C13 IOSTANDARD LVCMOS33} [get_ports led]

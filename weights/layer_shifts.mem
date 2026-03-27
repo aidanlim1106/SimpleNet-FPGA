@@ -1,0 +1,7 @@
+// Right-shift per layer for re-quantization
+// 4 layers, 5-bit values
+// Placeholder: shift=7 for all layers (conservative)
+07
+07
+07
+07
