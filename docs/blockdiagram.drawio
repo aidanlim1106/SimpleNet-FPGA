@@ -1,0 +1,272 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0" version="29.6.4">
+  <diagram id="simple-net-block-diagram" name="Simple-Net Architecture">
+    <mxGraphModel dx="1591" dy="1015" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=20;fontStyle=1;fontColor=#333333;" value="Simple-Net: FPGA Object Detection — System Block Diagram" vertex="1">
+          <mxGeometry height="40" width="800" x="400" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="clk_label_pclk" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontStyle=2;fontColor=#CC0000;" value="cam_pclk (~12 MHz)" vertex="1">
+          <mxGeometry height="20" width="140" x="30" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="clk_label_ui" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontStyle=2;fontColor=#0000CC;" value="ui_clk (~83 MHz)" vertex="1">
+          <mxGeometry height="20" width="120" x="30" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="clk_label_pix" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontStyle=2;fontColor=#006600;" value="clk_25mhz (25 MHz)" vertex="1">
+          <mxGeometry height="20" width="140" x="30" y="102" as="geometry" />
+        </mxCell>
+        <mxCell id="clk_label_24" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontStyle=2;fontColor=#996600;" value="clk_24mhz (24 MHz)" vertex="1">
+          <mxGeometry height="20" width="140" x="30" y="118" as="geometry" />
+        </mxCell>
+        <mxCell id="domain_pclk" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6E6;strokeColor=#CC0000;strokeWidth=1;dashed=1;opacity=40;" value="" vertex="1">
+          <mxGeometry height="520" width="440" x="20" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="domain_pclk_label" parent="1" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;fontStyle=3;fontColor=#CC0000;" value="cam_pclk domain" vertex="1">
+          <mxGeometry height="20" width="110" x="30" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="domain_ui" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6E6FF;strokeColor=#0000CC;strokeWidth=1;dashed=1;opacity=40;" value="" vertex="1">
+          <mxGeometry height="520" width="500" x="540" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="domain_ui_label" parent="1" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;fontStyle=3;fontColor=#0000CC;" value="ui_clk domain" vertex="1">
+          <mxGeometry height="20" width="100" x="550" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="domain_pix" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6FFE6;strokeColor=#006600;strokeWidth=1;dashed=1;opacity=40;" value="" vertex="1">
+          <mxGeometry height="520" width="470" x="1100" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="domain_pix_label" parent="1" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;fontStyle=3;fontColor=#006600;" value="clk_25mhz domain" vertex="1">
+          <mxGeometry height="20" width="120" x="1110" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="sys_clk_in" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=11;fontStyle=1;" value="sys_clk&#xa;100 MHz" vertex="1">
+          <mxGeometry height="50" width="120" x="700" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="clk_gen" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=10;fontStyle=1;" value="clk_generator&#xa;(Clock Wizard)&#xa;24 / 25 / 125 MHz" vertex="1">
+          <mxGeometry height="60" width="160" x="890" y="75" as="geometry" />
+        </mxCell>
+        <mxCell id="clk_arrow" edge="1" parent="1" source="sys_clk_in" style="endArrow=classic;html=1;strokeColor=#D6B656;strokeWidth=2;" target="clk_gen" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ov7670" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#F5F5F5;strokeColor=#666666;fontSize=12;fontStyle=1;fontColor=#333333;" value="OV7670&#xa;Camera" vertex="1">
+          <mxGeometry height="70" width="130" x="40" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="sccb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE0B2;strokeColor=#996600;fontSize=9;fontStyle=0;" value="ov7670_sccb&#xa;+&#xa;ov7670_registers&#xa;(24 MHz)" vertex="1">
+          <mxGeometry height="60" width="130" x="50" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="sccb_arrow" edge="1" parent="1" source="sccb" style="endArrow=classic;startArrow=classic;html=1;strokeColor=#996600;fontSize=8;" target="ov7670" value="SCCB/I2C">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="capture" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#CC0000;fontSize=10;fontStyle=1;" value="ov7670_capture&#xa;&#xa;8-bit parallel → RGB565&#xa;pixel_valid + frame_start" vertex="1">
+          <mxGeometry height="70" width="220" x="220" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="cam_to_capture" edge="1" parent="1" source="ov7670" style="endArrow=classic;html=1;strokeColor=#CC0000;strokeWidth=2;fontSize=8;" target="capture" value="D[7:0]&#xa;PCLK, HREF&#xa;VSYNC">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pix_track" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#CC0000;fontSize=9;" value="Pixel Position&#xa;Tracker&#xa;(col, row counters)" vertex="1">
+          <mxGeometry height="50" width="140" x="220" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="capture_to_track" edge="1" parent="1" source="capture" style="endArrow=classic;html=1;strokeColor=#CC0000;fontSize=8;" target="pix_track" value="pixel_valid">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="downsample" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#CC0000;fontSize=10;fontStyle=1;" value="downsample_128&#xa;&#xa;640×480 RGB565&#xa;→ 128×128 grayscale&#xa;(nearest-neighbor)" vertex="1">
+          <mxGeometry height="80" width="230" x="210" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="track_to_ds" edge="1" parent="1" source="pix_track" style="endArrow=classic;html=1;strokeColor=#CC0000;fontSize=8;" target="downsample" value="col, row">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="capture_to_ds" edge="1" parent="1" source="capture" style="endArrow=classic;html=1;strokeColor=#CC0000;strokeWidth=2;fontSize=8;curved=1;" target="downsample" value="RGB565&#xa;pixels">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="180" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cam_fifo" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=8;fillColor=#E1BEE7;strokeColor=#9C27B0;fontSize=9;fontStyle=1;" value="async_fifo&#xa;(CDC)&#xa;156-bit" vertex="1">
+          <mxGeometry height="60" width="100" x="480" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="cam_to_ddr3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CE93D8;strokeColor=#9C27B0;fontSize=9;fontStyle=1;" value="cam_to_ddr3&#xa;&#xa;Pack 8 pixels → 128-bit&#xa;Push through async FIFO" vertex="1">
+          <mxGeometry height="70" width="160" x="360" y="68" as="geometry" />
+        </mxCell>
+        <mxCell id="capture_to_cam2ddr" edge="1" parent="1" source="capture" style="endArrow=classic;html=1;strokeColor=#9C27B0;strokeWidth=2;fontSize=8;" target="cam_to_ddr3" value="RGB565">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cam2ddr_to_fifo" edge="1" parent="1" source="cam_to_ddr3" style="endArrow=classic;html=1;strokeColor=#9C27B0;strokeWidth=2;" target="cam_fifo" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_fifo" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=8;fillColor=#E1BEE7;strokeColor=#9C27B0;fontSize=9;fontStyle=1;" value="async_fifo&#xa;(CDC)&#xa;22-bit" vertex="1">
+          <mxGeometry height="60" width="100" x="480" y="395" as="geometry" />
+        </mxCell>
+        <mxCell id="ds_to_fifo" edge="1" parent="1" source="downsample" style="endArrow=classic;html=1;strokeColor=#9C27B0;strokeWidth=2;fontSize=8;" target="ds_fifo" value="8-bit gray&#xa;+ 14-bit addr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arbiter" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#0000CC;fontSize=10;fontStyle=1;" value="ddr3_arbiter&#xa;&#xa;Priority:&#xa;1. Camera (write)&#xa;2. Display (read)&#xa;3. CNN (unused)" vertex="1">
+          <mxGeometry height="100" width="160" x="620" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="fifo_to_arbiter" edge="1" parent="1" source="cam_fifo" style="endArrow=classic;html=1;strokeColor=#0000CC;strokeWidth=2;fontSize=8;" target="arbiter" value="wr_req&#xa;128-bit data">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mig" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#90CAF9;strokeColor=#0000CC;fontSize=10;fontStyle=1;" value="MIG 7 Series&#xa;DDR3 Controller&#xa;&#xa;128-bit UI @ 83 MHz" vertex="1">
+          <mxGeometry height="80" width="170" x="840" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="arbiter_to_mig" edge="1" parent="1" source="arbiter" style="endArrow=classic;startArrow=classic;html=1;strokeColor=#0000CC;strokeWidth=2;fontSize=8;" target="mig" value="app interface&#xa;(cmd/addr/data)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ddr3_chip" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#F5F5F5;strokeColor=#666666;fontSize=11;fontStyle=1;fontColor=#333333;" value="DDR3L&#xa;SDRAM&#xa;256 MB" vertex="1">
+          <mxGeometry height="60" width="120" x="880" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="mig_to_ddr3" edge="1" parent="1" source="mig" style="endArrow=classic;startArrow=classic;html=1;strokeColor=#666666;strokeWidth=3;fontSize=8;" target="ddr3_chip" value="16-bit&#xa;DDR3 bus">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fb_ctrl" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#0000CC;fontSize=9;" value="Double Buffer&#xa;Control&#xa;&#xa;FB0: 0x000_0000&#xa;FB1: 0x010_0000&#xa;Swap on vsync" vertex="1">
+          <mxGeometry height="90" width="150" x="620" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="fb_to_arbiter" edge="1" parent="1" source="fb_ctrl" style="endArrow=classic;html=1;strokeColor=#0000CC;fontSize=8;dashed=1;" target="arbiter" value="base addr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cnn_loader" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#0000CC;fontSize=9;fontStyle=1;" value="CNN Input&#xa;Loader FSM&#xa;&#xa;Pops FIFO → pipeline&#xa;Counts 16384 pixels&#xa;Asserts input_done" vertex="1">
+          <mxGeometry height="90" width="160" x="600" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="dsfifo_to_loader" edge="1" parent="1" source="ds_fifo" style="endArrow=classic;html=1;strokeColor=#9C27B0;strokeWidth=2;fontSize=8;" target="cnn_loader" value="22-bit&#xa;(addr+pixel)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cnn" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1565C0;strokeColor=#0D47A1;fontColor=#FFFFFF;fontSize=11;fontStyle=1;" value="cnn_pipeline&#xa;&#xa;4-Layer INT8 CNN&#xa;128×128 → 8×8 heatmap&#xa;&#xa;Single MAC unit&#xa;Ping-pong BRAM&#xa;~1.5M cycles (~18ms)" vertex="1">
+          <mxGeometry height="140" width="210" x="800" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="loader_to_cnn" edge="1" parent="1" source="cnn_loader" style="endArrow=classic;html=1;strokeColor=#0000CC;strokeWidth=2;fontSize=8;" target="cnn" value="input_valid&#xa;input_pixel&#xa;input_addr&#xa;input_done">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="weight_rom" parent="1" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=14;fillColor=#C5CAE9;strokeColor=#3F51B5;fontSize=9;" value="" vertex="1">
+          <mxGeometry height="100" width="160" x="820" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="wrom_to_cnn" edge="1" parent="1" source="weight_rom" style="endArrow=classic;html=1;strokeColor=#3F51B5;strokeWidth=1;fontSize=8;" target="cnn" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cnn_layers" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#0D47A1;fillColor=#E3F2FD;fontSize=9;fontFamily=Courier New;rounded=1;" value="Layer 1: 128×128×1 → 64×64×4&#xa;Layer 2: 64×64×4 → 32×32×8&#xa;Layer 3: 32×32×8 → 16×16×16&#xa;Layer 4: 16×16×16 → 8×8×1" vertex="1">
+          <mxGeometry height="80" width="200" x="575" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="inf_ctrl" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#0000CC;fontSize=9;fontStyle=1;" value="Inference&#xa;Control FSM&#xa;&#xa;start → busy → done&#xa;Latch detect(x,y,conf)" vertex="1">
+          <mxGeometry height="80" width="150" x="600" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="cnn_to_inf" edge="1" parent="1" source="cnn" style="endArrow=classic;html=1;strokeColor=#0000CC;strokeWidth=2;fontSize=8;curved=1;" target="inf_ctrl" value="done&#xa;detect_x/y/conf">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="detect_cdc" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=8;fillColor=#E1BEE7;strokeColor=#9C27B0;fontSize=9;fontStyle=1;" value="Double-FF&#xa;CDC Sync&#xa;&#xa;detect_x/y/conf&#xa;detect_valid" vertex="1">
+          <mxGeometry height="80" width="120" x="1000" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="inf_to_cdc" edge="1" parent="1" source="inf_ctrl" style="endArrow=classic;html=1;strokeColor=#9C27B0;strokeWidth=2;fontSize=8;" target="detect_cdc" value="detect(x,y,conf)&#xa;valid">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hdmi_timing" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#006600;fontSize=10;fontStyle=1;" value="hdmi_timing&#xa;&#xa;640×480 @ 60Hz&#xa;H/V sync generation&#xa;pixel_x, pixel_y" vertex="1">
+          <mxGeometry height="80" width="180" x="1130" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ddr3_to_disp" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C8E6C9;strokeColor=#006600;fontSize=10;fontStyle=1;" value="ddr3_to_display&#xa;&#xa;DDR3 read → RGB888&#xa;Test pattern fallback" vertex="1">
+          <mxGeometry height="70" width="180" x="1130" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="arbiter_to_disp" edge="1" parent="1" source="arbiter" style="endArrow=classic;startArrow=classic;html=1;strokeColor=#0000CC;strokeWidth=2;fontSize=8;" target="ddr3_to_disp" value="rd_req / rd_data&#xa;128-bit">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="890" y="160" />
+              <mxPoint x="1060" y="160" />
+              <mxPoint x="1080" y="250" />
+              <mxPoint x="1080" y="325" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="timing_to_disp" edge="1" parent="1" source="hdmi_timing" style="endArrow=classic;html=1;strokeColor=#006600;fontSize=8;" target="ddr3_to_disp" value="active&#xa;pixel_x/y">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bbox" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A5D6A7;strokeColor=#006600;fontSize=10;fontStyle=1;" value="bbox_overlay&#xa;&#xa;Green 2px border&#xa;80×60 box at detection&#xa;Confidence threshold" vertex="1">
+          <mxGeometry height="80" width="180" x="1130" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="disp_to_bbox" edge="1" parent="1" source="ddr3_to_disp" style="endArrow=classic;html=1;strokeColor=#006600;strokeWidth=2;fontSize=8;" target="bbox" value="R/G/B in">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cdc_to_bbox" edge="1" parent="1" source="detect_cdc" style="endArrow=classic;html=1;strokeColor=#9C27B0;strokeWidth=2;fontSize=8;" target="bbox" value="detect_x/y&#xa;conf, valid">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="timing_to_bbox" edge="1" parent="1" source="hdmi_timing" style="endArrow=classic;html=1;strokeColor=#006600;fontSize=8;dashed=1;" target="bbox" value="pixel_x/y&#xa;active">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1340" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hdmi_top" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#81C784;strokeColor=#006600;fontSize=10;fontStyle=1;" value="hdmi_top&#xa;&#xa;TMDS Encoding&#xa;10:1 Serialization&#xa;(25 MHz + 125 MHz)" vertex="1">
+          <mxGeometry height="80" width="180" x="1130" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="bbox_to_hdmi" edge="1" parent="1" source="bbox" style="endArrow=classic;html=1;strokeColor=#006600;strokeWidth=2;fontSize=8;" target="hdmi_top" value="R/G/B out&#xa;hsync, vsync">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="monitor" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#F5F5F5;strokeColor=#666666;fontSize=12;fontStyle=1;fontColor=#333333;" value="HDMI&#xa;Monitor" vertex="1">
+          <mxGeometry height="60" width="120" x="1380" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="hdmi_to_monitor" edge="1" parent="1" source="hdmi_top" style="endArrow=classic;html=1;strokeColor=#006600;strokeWidth=3;fontSize=8;" target="monitor" value="4× TMDS&#xa;diff pairs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="leds" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9C4;strokeColor=#F9A825;fontSize=9;fontStyle=1;" value="Debug LEDs&#xa;&#xa;[0] PLL Lock&#xa;[1] DDR3 Cal&#xa;[2] CNN Busy&#xa;[3] Detection" vertex="1">
+          <mxGeometry height="90" width="110" x="1380" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="flow_label_1" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;fontColor=#666666;" value="① Camera captures 640×480 RGB565 @ 60fps" vertex="1">
+          <mxGeometry height="20" width="280" x="30" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="flow_label_2" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;fontColor=#666666;" value="② Pixels packed 8→128-bit, cross CDC to DDR3 via async FIFO" vertex="1">
+          <mxGeometry height="20" width="340" x="30" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="flow_label_3" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;fontColor=#666666;" value="③ Simultaneously, downsampler picks 128×128 grayscale samples" vertex="1">
+          <mxGeometry height="20" width="350" x="30" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="flow_label_4" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;fontColor=#666666;" value="④ CNN loader pops 16384 pixels from FIFO into pipeline BRAM" vertex="1">
+          <mxGeometry height="20" width="340" x="30" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="flow_label_5" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;fontColor=#666666;" value="⑤ CNN runs 4-layer inference (~18ms), outputs 8×8 heatmap → argmax → (x,y)" vertex="1">
+          <mxGeometry height="20" width="440" x="30" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="flow_label_6" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;fontColor=#666666;" value="⑥ Detection coordinates cross CDC to pixel clock, drive bounding box overlay" vertex="1">
+          <mxGeometry height="20" width="420" x="30" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="flow_label_7" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;fontColor=#666666;" value="⑦ Display reads frame buffer from DDR3, overlays bounding box, outputs HDMI" vertex="1">
+          <mxGeometry height="20" width="430" x="30" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_title" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;fontStyle=1;" value="Legend" vertex="1">
+          <mxGeometry height="20" width="50" x="550" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_ext" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;size=8;fillColor=#F5F5F5;strokeColor=#666666;fontSize=9;" value="" vertex="1">
+          <mxGeometry height="20" width="40" x="550" y="775" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_ext_label" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" value="External component" vertex="1">
+          <mxGeometry height="20" width="120" x="600" y="775" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_fifo" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=5;fillColor=#E1BEE7;strokeColor=#9C27B0;fontSize=9;" value="" vertex="1">
+          <mxGeometry height="20" width="40" x="550" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_fifo_label" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" value="Clock domain crossing (async FIFO / sync)" vertex="1">
+          <mxGeometry height="20" width="250" x="600" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_rtl" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BBDEFB;strokeColor=#0000CC;fontSize=9;" value="" vertex="1">
+          <mxGeometry height="20" width="40" x="550" y="825" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_rtl_label" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" value="RTL module (FPGA logic)" vertex="1">
+          <mxGeometry height="20" width="140" x="600" y="825" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_doc" parent="1" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=5;fillColor=#C5CAE9;strokeColor=#3F51B5;fontSize=9;" value="" vertex="1">
+          <mxGeometry height="20" width="40" x="550" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_doc_label" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=9;" value="BRAM / stored data" vertex="1">
+          <mxGeometry height="20" width="120" x="600" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="perf_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#90A4AE;fontSize=9;fontStyle=0;align=left;spacingLeft=8;" value="Performance&#xa;&#xa;Camera: 640×480 @ 60fps&#xa;CNN: ~55 fps (18ms/frame)&#xa;Display: 640×480 @ 60Hz&#xa;Latency: ~1 frame (18ms)" vertex="1">
+          <mxGeometry height="100" width="180" x="880" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="resource_box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECEFF1;strokeColor=#90A4AE;fontSize=9;fontStyle=0;align=left;spacingLeft=8;" value="FPGA Resources (XC7S50)&#xa;&#xa;DSP48:  70-90 / 120 used&#xa;BRAM:   ~215 / 338 KB used&#xa;LUT:    ~60% estimated&#xa;FF:     ~40% estimated" vertex="1">
+          <mxGeometry height="100" width="190" x="1100" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="glq_ac8NwMyA0k8mntc5-1" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 9px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(236, 236, 236); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;weight_rom&lt;/span&gt;&lt;br style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-size: 9px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(236, 236, 236); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 9px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(236, 236, 236); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;1620 weights (INT8)&lt;/span&gt;&lt;br style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-size: 9px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(236, 236, 236); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 9px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(236, 236, 236); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;29 biases (INT16)&lt;/span&gt;&lt;br style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-size: 9px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(236, 236, 236); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 9px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(236, 236, 236); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;4 shifts (UINT5)&lt;/span&gt;&lt;br style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-size: 9px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(236, 236, 236); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 9px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(236, 236, 236); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;Loaded from .mem&lt;/span&gt;" vertex="1">
+          <mxGeometry height="120" width="110" x="830" y="600" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
